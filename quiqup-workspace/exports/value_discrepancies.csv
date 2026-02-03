@@ -1,0 +1,5 @@
+invoice_number,bigquery_amount_aed,csv_amount_aed,difference_aed,month,state
+INV-093668,6746.88,2.0,6744.88,Feb,paid
+INV-094827,5791.51,2.0,5789.51,Feb,paid
+INV-097122,3665.38,0.0,3665.38,Mar,paid
+INV-094363,983.0,880.0,103.0,Feb,paid

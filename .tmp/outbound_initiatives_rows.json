@@ -1,0 +1,191 @@
+[
+  {
+    "Initiative": "Run weekly IG/TikTok prospecting marathons (timeboxed, team-wide)",
+    "Description": "Step 1 - Identify targeted businesses | Priority 1 (core)",
+    "Impact": "Identify: # of ICP prospects identified; # of Medium/Large prospects identified",
+    "Confidence": "",
+    "Effort": ""
+  },
+  {
+    "Initiative": "Run weekly Sales Navigator prospecting marathons (timeboxed, team-wide)",
+    "Description": "Step 1 - Identify targeted businesses | Priority 1 (core)",
+    "Impact": "Identify: # of ICP prospects identified; # of Medium/Large prospects identified",
+    "Confidence": "",
+    "Effort": ""
+  },
+  {
+    "Initiative": "Do “deep search” via AI tools (e.g., Gemini/ChatGPT) to generate lists of active e-commerce brands",
+    "Description": "Step 1 - Identify targeted businesses | Priority 1 (core)",
+    "Impact": "Identify: # of ICP prospects identified; # of Medium/Large prospects identified",
+    "Confidence": "",
+    "Effort": ""
+  },
+  {
+    "Initiative": "Build lists + outreach to relevant influencers (where considered a viable channel)",
+    "Description": "Step 1 - Identify targeted businesses | Priority 1 (core)",
+    "Impact": "Identify: # of ICP prospects identified; # of Medium/Large prospects identified",
+    "Confidence": "",
+    "Effort": ""
+  },
+  {
+    "Initiative": "Identify and attend 2 community events per month (track conversations + sourced prospects)",
+    "Description": "Step 1 - Identify targeted businesses | Priority 1 (core)",
+    "Impact": "Identify: # of ICP prospects identified; # of Medium/Large prospects identified",
+    "Confidence": "",
+    "Effort": ""
+  },
+  {
+    "Initiative": "Explore partnerships with product registration agencies (UAE)",
+    "Description": "Step 1 - Identify targeted businesses | Priority 1 (core)",
+    "Impact": "Identify: # of ICP prospects identified; # of Medium/Large prospects identified",
+    "Confidence": "",
+    "Effort": ""
+  },
+  {
+    "Initiative": "Re-engage older “lost leads” that were too small (UAE)",
+    "Description": "Step 1 - Identify targeted businesses | Priority 1 (core)",
+    "Impact": "Identify: # of ICP prospects identified; # of Medium/Large prospects identified",
+    "Confidence": "",
+    "Effort": ""
+  },
+  {
+    "Initiative": "Founder social “warm up” on selected prospects",
+    "Description": "Step 1 - Identify targeted businesses | Priority 2 (nice-to-have / time-costly)",
+    "Impact": "Identify: # of ICP prospects identified; # of Medium/Large prospects identified",
+    "Confidence": "",
+    "Effort": ""
+  },
+  {
+    "Initiative": "Additional niche list-building (e.g., specific segments like Indian brands not yet in UAE)",
+    "Description": "Step 1 - Identify targeted businesses | Priority 2 (nice-to-have / time-costly)",
+    "Impact": "Identify: # of ICP prospects identified; # of Medium/Large prospects identified",
+    "Confidence": "",
+    "Effort": ""
+  },
+  {
+    "Initiative": "Use Clay to identify e-commerce businesses that match sales criteria, iterate until quality is acceptable",
+    "Description": "Step 1 - Identify targeted businesses | Priority 2 (nice-to-have / time-costly) | Growth-led sourcing streams (automation/data)",
+    "Impact": "Identify: # of ICP prospects identified; # of Medium/Large prospects identified",
+    "Confidence": "",
+    "Effort": ""
+  },
+  {
+    "Initiative": "Scrap Tabby/Tamara merchants list (existing sheet) to identify potential retail clients",
+    "Description": "Step 1 - Identify targeted businesses | Priority 2 (nice-to-have / time-costly) | Growth-led sourcing streams (automation/data)",
+    "Impact": "Identify: # of ICP prospects identified; # of Medium/Large prospects identified",
+    "Confidence": "",
+    "Effort": ""
+  },
+  {
+    "Initiative": "Scrap Meta Ads Library / Google search operators to identify active e-commerce businesses",
+    "Description": "Step 1 - Identify targeted businesses | Priority 2 (nice-to-have / time-costly) | Growth-led sourcing streams (automation/data)",
+    "Impact": "Identify: # of ICP prospects identified; # of Medium/Large prospects identified",
+    "Confidence": "",
+    "Effort": ""
+  },
+  {
+    "Initiative": "Scrap Google Maps accounts of existing clients for lookalike prospecting",
+    "Description": "Step 1 - Identify targeted businesses | Priority 2 (nice-to-have / time-costly) | Growth-led sourcing streams (automation/data)",
+    "Impact": "Identify: # of ICP prospects identified; # of Medium/Large prospects identified",
+    "Confidence": "",
+    "Effort": ""
+  },
+  {
+    "Initiative": "Launch employee referral program (UAE only)",
+    "Description": "Step 1 - Identify targeted businesses | Priority 2 (nice-to-have / time-costly) | Growth-led sourcing streams (automation/data)",
+    "Impact": "Identify: # of ICP prospects identified; # of Medium/Large prospects identified",
+    "Confidence": "",
+    "Effort": ""
+  },
+  {
+    "Initiative": "Identify prospects from internal end-customer database (UAE only)",
+    "Description": "Step 1 - Identify targeted businesses | Priority 2 (nice-to-have / time-costly) | Growth-led sourcing streams (automation/data)",
+    "Impact": "Identify: # of ICP prospects identified; # of Medium/Large prospects identified",
+    "Confidence": "",
+    "Effort": ""
+  },
+  {
+    "Initiative": "Build/iterate Clay enrichment flows for contact details (LinkedIn / email / phone)",
+    "Description": "Step 2 - Find contact details | Priority 1 (core)",
+    "Impact": "Find: % of prospects with relevant contact details (LinkedIn / email / phone)",
+    "Confidence": "",
+    "Effort": ""
+  },
+  {
+    "Initiative": "Set a frequent review cadence for prospects where Clay can’t find contact details; prioritize top 20-50 for manual work",
+    "Description": "Step 2 - Find contact details | Priority 1 (core)",
+    "Impact": "Find: % of prospects with relevant contact details (LinkedIn / email / phone)",
+    "Confidence": "",
+    "Effort": ""
+  },
+  {
+    "Initiative": "Run “LinkedIn marathon” for prospects missing contact details (timeboxed, team-wide)",
+    "Description": "Step 2 - Find contact details | Priority 1 (core)",
+    "Impact": "Find: % of prospects with relevant contact details (LinkedIn / email / phone)",
+    "Confidence": "",
+    "Effort": ""
+  },
+  {
+    "Initiative": "Scrap prospect websites to extract info@ emails (not personal contacts; use only if needed / time allows)",
+    "Description": "Step 2 - Find contact details | Priority 2 (optional)",
+    "Impact": "Find: % of prospects with relevant contact details (LinkedIn / email / phone)",
+    "Confidence": "",
+    "Effort": ""
+  },
+  {
+    "Initiative": "Run parallel: automated Lemlist sequences + manual sales outreach; iterate messaging using feedback loops",
+    "Description": "Step 3 - Reach out effectively | Priority 1 (core)",
+    "Impact": "Reach: response rate; # weekly meetings; # weekly opportunities",
+    "Confidence": "",
+    "Effort": ""
+  },
+  {
+    "Initiative": "Selective leadership outreach to a set of priority prospects",
+    "Description": "Step 3 - Reach out effectively | Priority 1 (core)",
+    "Impact": "Reach: response rate; # weekly meetings; # weekly opportunities",
+    "Confidence": "",
+    "Effort": ""
+  },
+  {
+    "Initiative": "KSA: direct phone outreach to propose in-person coffee meetings",
+    "Description": "Step 3 - Reach out effectively | Priority 1 (core)",
+    "Impact": "Reach: response rate; # weekly meetings; # weekly opportunities",
+    "Confidence": "",
+    "Effort": ""
+  },
+  {
+    "Initiative": "AI tool calling landlines to identify the right POC (noted as debated in docs)",
+    "Description": "Step 3 - Reach out effectively | Priority 2 (experimental)",
+    "Impact": "Reach: response rate; # weekly meetings; # weekly opportunities",
+    "Confidence": "",
+    "Effort": ""
+  },
+  {
+    "Initiative": "Pair a BDM with a leadership member to co-sell on selected large prospects",
+    "Description": "Step 4 - Convert or nurture | Priority 1 (core)",
+    "Impact": "Convert: Opp -> Client conversion rate; avg time to convert; # opportunities created post nurturing",
+    "Confidence": "",
+    "Effort": ""
+  },
+  {
+    "Initiative": "Invite selected outbound prospects to events (e.g., Iftar in UAE) to re-open / accelerate deals",
+    "Description": "Step 4 - Convert or nurture | Priority 1 (core)",
+    "Impact": "Convert: Opp -> Client conversion rate; avg time to convert; # opportunities created post nurturing",
+    "Confidence": "",
+    "Effort": ""
+  },
+  {
+    "Initiative": "Tailored short videos with leadership participation to re-engage “ghosted” opportunities",
+    "Description": "Step 4 - Convert or nurture | Priority 2 (optional)",
+    "Impact": "Convert: Opp -> Client conversion rate; avg time to convert; # opportunities created post nurturing",
+    "Confidence": "",
+    "Effort": ""
+  },
+  {
+    "Initiative": "LinkedIn training + internal competition to grow networks and nurture prospects (consider deferring if term workload is high)",
+    "Description": "Step 4 - Convert or nurture | Priority 2 (optional)",
+    "Impact": "Convert: Opp -> Client conversion rate; avg time to convert; # opportunities created post nurturing",
+    "Confidence": "",
+    "Effort": ""
+  }
+]
