@@ -1732,4 +1732,41 @@ Payback Period (months) = CAC / Monthly Margin per Customer
 
 ---
 
+## Statistical Methods (Quick Reference)
+
+### Method Selection
+| Question | Method |
+|----------|--------|
+| "Does X cause Y?" / "How much more likely?" | Relative Risk + Chi-Square |
+| "Is the difference significant?" | Chi-Square (categorical) or t-test (continuous) |
+
+### Key Thresholds
+| Metric | Value | Interpretation |
+|--------|-------|----------------|
+| **Relative Risk** | ≥2.0 | Strong effect ("2x more likely") |
+| | 1.5-2.0 | Moderate |
+| | <1.2 | Negligible |
+| **Chi-Square (df=1)** | ≥10.83 | p<0.001 ✓✓✓ |
+| | ≥6.63 | p<0.01 ✓✓ |
+| | ≥3.84 | p<0.05 ✓ |
+
+### SQL: 2x2 Contingency Table
+```sql
+WITH contingency AS (
+  SELECT
+    SUM(CASE WHEN exposed AND outcome THEN 1 ELSE 0 END) AS a,
+    SUM(CASE WHEN exposed AND NOT outcome THEN 1 ELSE 0 END) AS b,
+    SUM(CASE WHEN NOT exposed AND outcome THEN 1 ELSE 0 END) AS c,
+    SUM(CASE WHEN NOT exposed AND NOT outcome THEN 1 ELSE 0 END) AS d,
+    COUNT(*) AS n
+  FROM base_data
+)
+SELECT
+  ROUND((a/(a+b)) / NULLIF(c/(c+d), 0), 2) AS relative_risk,
+  ROUND(n * POW(a*d - b*c, 2) / NULLIF((a+b)*(c+d)*(a+c)*(b+d), 0), 2) AS chi_square
+FROM contingency
+```
+
+---
+
 **Maintenance:** If you discover a new reusable query pattern or table combination, prompt the user: *"This pattern could be useful for future queries. Want me to add it to the Use Cases section?"*

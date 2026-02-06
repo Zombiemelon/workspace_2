@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiqup Fulfilment - Service & Fee Schedule</title>
+  <style>
+    /* ========================================
+       QUIQUP SERVICE FEE SCHEDULE
+       Design System from Email Template
+       ======================================== */
+
+    /* CSS Variables */
+    :root {
+      --bg-page: #f0eee6;
+      --bg-card: #faf9f5;
+      --bg-white: #ffffff;
+      --bg-table-header: #6C65F7;
+      --bg-table-alt: #f5f4f0;
+      --border-light: #e5e3db;
+      --border-table: #d4d2ca;
+
+      --text-primary: #262624;
+      --text-dark: #000000;
+      --text-muted: #5c5c5a;
+      --text-white: #ffffff;
+      --text-accent: #6C65F7;
+
+      --font-serif: Georgia, 'Times New Roman', serif;
+      --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+      --radius-card: 20px;
+      --radius-table: 12px;
+      --radius-badge: 50%;
+
+      --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-white);
+      font-family: var(--font-serif);
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Page Container */
+    .document {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: var(--bg-page);
+      min-height: 100vh;
+      border-radius: 20px 20px 0 0;
+    }
+
+    .document-inner {
+      padding: 48px 56px;
+    }
+
+    /* Header */
+    .document-header {
+      text-align: center;
+      margin-top: 32px;
+      margin-bottom: 40px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .document-title {
+      font-family: var(--font-serif);
+      font-size: 36px;
+      font-weight: 400;
+      color: var(--text-dark);
+      margin: 0 0 8px 0;
+      letter-spacing: -0.5px;
+    }
+
+    .document-subtitle {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--text-primary);
+      margin: 0;
+    }
+
+    .document-intro {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-top: 24px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .document-intro a {
+      color: var(--text-accent);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* Section Cards */
+    .section-card {
+      background-color: var(--bg-card);
+      border-radius: var(--radius-card);
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .section-badge {
+      width: 32px;
+      height: 32px;
+      background-color: var(--bg-table-header);
+      color: var(--text-white);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: var(--radius-badge);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin: 0;
+    }
+
+    .section-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Tables */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 0 -8px;
+      padding: 0 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 14px;
+      border-radius: var(--radius-table);
+      overflow: hidden;
+      border: 1px solid var(--border-table);
+    }
+
+    thead th {
+      background-color: var(--bg-table-header);
+      color: var(--text-white);
+      font-weight: 600;
+      text-align: left;
+      padding: 14px 16px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      border-bottom: none;
+    }
+
+    thead th:first-child {
+      border-top-left-radius: var(--radius-table);
+    }
+
+    thead th:last-child {
+      border-top-right-radius: var(--radius-table);
+    }
+
+    tbody td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border-light);
+      vertical-align: top;
+      background-color: var(--bg-white);
+    }
+
+    tbody tr:nth-child(even) td {
+      background-color: var(--bg-table-alt);
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody tr:last-child td:first-child {
+      border-bottom-left-radius: var(--radius-table);
+    }
+
+    tbody tr:last-child td:last-child {
+      border-bottom-right-radius: var(--radius-table);
+    }
+
+    td.price {
+      font-weight: 600;
+      color: var(--text-dark);
+      white-space: nowrap;
+    }
+
+    td.description {
+      color: var(--text-primary);
+    }
+
+    /* Comparison tables */
+    .comparison-table thead th:nth-child(2),
+    .comparison-table thead th:nth-child(3),
+    .comparison-table thead th:nth-child(4) {
+      text-align: center;
+    }
+
+    .comparison-table tbody td:nth-child(2),
+    .comparison-table tbody td:nth-child(3),
+    .comparison-table tbody td:nth-child(4) {
+      text-align: center;
+    }
+
+    .comparison-table .label-cell {
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    /* Footnotes */
+    .footnotes {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .footnote {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 8px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .footnote:last-child {
+      margin-bottom: 0;
+    }
+
+    .footnote-num {
+      position: absolute;
+      left: 0;
+      font-weight: 600;
+      color: var(--text-accent);
+    }
+
+    sup {
+      color: var(--text-accent);
+      font-weight: 600;
+      font-size: 10px;
+    }
+
+    /* Coverage Area Styles */
+    .coverage-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .coverage-item {
+      background-color: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .coverage-item h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin: 0 0 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .coverage-item h4::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background-color: var(--bg-table-header);
+      border-radius: 50%;
+    }
+
+    .coverage-item p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* Remote Areas Table */
+    .remote-areas-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .emirate-block {
+      background-color: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .emirate-block h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-white);
+      background-color: var(--bg-table-header);
+      margin: -16px -16px 12px -16px;
+      padding: 10px 16px;
+      border-radius: 12px 12px 0 0;
+    }
+
+    .emirate-block .areas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .emirate-block .area-tag {
+      font-size: 11px;
+      color: var(--text-muted);
+      background-color: var(--bg-table-alt);
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    /* Legal/Terms Sections */
+    .terms-content {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .terms-content h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin: 24px 0 12px 0;
+    }
+
+    .terms-content h4:first-child {
+      margin-top: 0;
+    }
+
+    .terms-content p {
+      margin: 0 0 12px 0;
+    }
+
+    .terms-content ul {
+      margin: 12px 0;
+      padding-left: 24px;
+    }
+
+    .terms-content li {
+      margin-bottom: 8px;
+    }
+
+    .highlight-box {
+      background-color: var(--bg-white);
+      border-left: 3px solid var(--bg-table-header);
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      margin: 16px 0;
+    }
+
+    .highlight-box p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    /* Info Grid for Payment Terms */
+    .info-grid {
+      display: grid;
+      gap: 1px;
+      background-color: var(--border-light);
+      border-radius: var(--radius-table);
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+    }
+
+    .info-row {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      background-color: var(--bg-white);
+    }
+
+    .info-row.header {
+      background-color: var(--bg-table-header);
+    }
+
+    .info-row.header .info-label,
+    .info-row.header .info-value {
+      color: var(--text-white);
+      font-weight: 600;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .info-label {
+      padding: 14px 16px;
+      font-weight: 600;
+      color: var(--text-dark);
+      background-color: var(--bg-card);
+      font-size: 13px;
+    }
+
+    .info-value {
+      padding: 14px 16px;
+      font-size: 14px;
+    }
+
+    /* Document Footer */
+    .document-footer {
+      text-align: center;
+      padding-top: 32px;
+      margin-top: 16px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .footer-text {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .footer-text a {
+      color: var(--text-accent);
+      text-decoration: none;
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background-color: white;
+        font-size: 12px;
+      }
+
+      .document {
+        max-width: 100%;
+        background-color: white;
+      }
+
+      .document-inner {
+        padding: 24px;
+      }
+
+      .section-card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid var(--border-light);
+        padding: 24px;
+        margin-bottom: 16px;
+      }
+
+      .document-title {
+        font-size: 28px;
+      }
+
+      .section-title {
+        font-size: 16px;
+      }
+
+      table {
+        font-size: 11px;
+      }
+
+      thead th {
+        padding: 10px 12px;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      tbody td {
+        padding: 10px 12px;
+      }
+
+      .remote-areas-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .emirate-block h4 {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .document-inner {
+        padding: 32px 24px;
+      }
+
+      .document-title {
+        font-size: 28px;
+      }
+
+      .section-card {
+        padding: 24px;
+        border-radius: 16px;
+      }
+
+      .remote-areas-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .info-row {
+        grid-template-columns: 1fr;
+      }
+
+      .info-label {
+        border-bottom: 1px solid var(--border-light);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="document">
+    <div class="document-inner">
+
+      <!-- Document Header -->
+      <header class="document-header">
+        <h1 class="document-title">Quiqup Fulfilment Starter Pack</h1>
+        <h2 class="document-subtitle">Service & Fee Schedule</h2>
+        <p class="document-intro">
+          By making use of our Services, you agree that you have read, understand, and accept the
+          <a href="https://www.quiqup.com/quiqup-terms-of-service-fulfilment-and-delivery-29-01-2026" target="_blank" rel="noopener noreferrer">Terms and Conditions</a>.
+        </p>
+      </header>
+
+      <!-- Section 1: Base Rate -->
+      <section class="section-card">
+        <div class="section-header">
+          <span class="section-badge">1</span>
+          <div>
+            <h3 class="section-title">Base Rate</h3>
+            <p class="section-subtitle">Ecommerce Fulfillment</p>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 65%;">Description</th>
+                <th style="width: 35%;">Pricing (AED)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="description">
+                  <strong>Next Day - Pick, Pack & Delivery</strong><br>
+                  Bundle of 5 orders (up to 5 pcs. per order)
+                </td>
+                <td class="price">AED 100 / bundle<sup>1</sup></td>
+              </tr>
+              <tr>
+                <td class="description">
+                  <strong>Same Day - Pick, Pack & Delivery</strong><br>
+                  Bundle of 5 orders (up to 5 pcs. per order)
+                </td>
+                <td class="price">AED 140 / bundle<sup>1</sup></td>
+              </tr>
+              <tr>
+                <td class="description">
+                  <strong>Return / Reverse Service</strong><br>
+                  Collect, track & unpack (including unpacking, basic QA/QC, restocking)
+                </td>
+                <td class="price">AED 20 / order<sup>2</sup></td>
+              </tr>
+              <tr>
+                <td class="description">
+                  <strong>Temperature Controlled Storage</strong>
+                </td>
+                <td class="price">AED 400 / CBM / month<sup>3</sup></td>
+              </tr>
+              <tr>
+                <td class="description">
+                  <strong>Receiving Stock</strong><br>
+                  Stock count, quality checks, sorting & put away
+                </td>
+                <td class="price">Free</td>
+              </tr>
+              <tr>
+                <td class="description">
+                  <strong>Quiqup Mailer Bags Packaging</strong><br>
+                  Medium and Large sizes
+                </td>
+                <td class="price">Free</td>
+              </tr>
+              <tr>
+                <td class="description">
+                  <strong>Global Shipping</strong><br>
+                  Pick and pack on export orders (up to 5 pieces per order)
+                </td>
+                <td class="price">Rates on request<br><strong>AED 5</strong></td>
+              </tr>
+              <tr>
+                <td class="description">
+                  <strong>Minimum Monthly Billing</strong>
+                </td>
+                <td class="price">AED 2,000 / month<sup>4</sup></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="footnotes">
+          <p class="footnote"><span class="footnote-num">1</span> Includes both successful deliveries and failed deliveries returned to origin. Quiqup reserves the right to adjust its fees in case of consistent over-representation of certain Emirates vs. standard population mix.</p>
+          <p class="footnote"><span class="footnote-num">2</span> Return procedure includes collection, basic inspection and barcode verification, restocking for non-damaged items in sealed original packaging.</p>
+          <p class="footnote"><span class="footnote-num">3</span> CBM use will be calculated as an average of the beginning of month, 15th of month and end of month.</p>
+          <p class="footnote"><span class="footnote-num">4</span> If the invoice value falls below this threshold, a surcharge will apply to bring the invoice up to the minimum amount.</p>
+        </div>
+      </section>
+
+      <!-- Section 2: Timing, Area & Package Dimensions -->
+      <section class="section-card">
+        <div class="section-header">
+          <span class="section-badge">2</span>
+          <div>
+            <h3 class="section-title">Timing, Area & Package Dimensions</h3>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th style="width: 22%;">Service</th>
+                <th style="width: 26%;">Next Day</th>
+                <th style="width: 26%;">Same Day</th>
+                <th style="width: 26%;">Return</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="label-cell">Description</td>
+                <td>Deliver next day by car (ambient)</td>
+                <td>Deliver same day by car (ambient)</td>
+                <td>Collected next day by car (ambient)</td>
+              </tr>
+              <tr>
+                <td class="label-cell">Parcel standard size</td>
+                <td colspan="3">L+W+H &lt; 90cm (e.g. 30×30×30cm) &lt; 5kg</td>
+              </tr>
+              <tr>
+                <td class="label-cell">Parcel max size</td>
+                <td colspan="3">L+W+H &lt; 120cm (e.g. 50×50×100cm) &lt; 5kg<br>Orders &gt;25kg need to be broken into multiple parcels.</td>
+              </tr>
+              <tr>
+                <td class="label-cell">Multiple parcels</td>
+                <td colspan="3">Max of up to 8 parcels per order as long as each parcel is below the above specifications on dimensions and weight</td>
+              </tr>
+              <tr>
+                <td class="label-cell">Cut-off<br><em style="font-weight: normal; font-size: 12px;">(orders placed by)</em></td>
+                <td>10 pm</td>
+                <td>3pm (for Dubai)<br>1pm (for other Emirates)</td>
+                <td>Midnight</td>
+              </tr>
+              <tr>
+                <td class="label-cell">Delivery window</td>
+                <td>9am - 10pm<br>(Next Day)</td>
+                <td>4pm - 10pm<br>(Same Day)</td>
+                <td><u>Pick-up window</u><br>9am - 10pm<br>(Next Day)</td>
+              </tr>
+              <tr>
+                <td class="label-cell">Coverage area<sup>5</sup><br><em style="font-weight: normal; font-size: 12px;">(excluding freezone)</em></td>
+                <td>Dubai / Abu Dhabi / Al Ain / Sharjah / Ajman / Fujairah / RAK / UAQ</td>
+                <td>Dubai / Abu Dhabi / Sharjah / Ajman</td>
+                <td>Dubai / Abu Dhabi / Al Ain / Sharjah / Ajman / Fujairah / RAK / UAQ</td>
+              </tr>
+              <tr>
+                <td class="label-cell"># of attempts</td>
+                <td colspan="3">3 attempts<br><br><span style="font-size: 12px;">After 2 failed attempts, an automatic WhatsApp message is sent to the customer to confirm delivery and/or provide instructions. After 48 hours, Quiqup's customer care team calls customers to confirm the 3rd attempt.<br><br>After 3 failed attempts or 2 failed attempts w/o confirmation from the customer to schedule a 3rd attempt within the first 72 hours, Quiqup will return the order to the warehouse (RTO).<sup>6</sup></span></td>
+              </tr>
+              <tr>
+                <td class="label-cell">Proof of delivery</td>
+                <td colspan="2">Image at the door and/or parcel</td>
+                <td>N/A</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="footnotes">
+          <p class="footnote"><span class="footnote-num">5</span> Remote Areas are excluded from the above but are serviced twice a week on Thursday and Sunday. For more details refer to Coverage Area section.</p>
+          <p class="footnote"><span class="footnote-num">6</span> After 2 failed attempts, an automatic WhatsApp message is sent to the customer to confirm delivery and/or provide instructions. After 48 hours, Quiqup's customer care team calls customers to confirm the 3rd attempt.</p>
+        </div>
+      </section>
+
+      <!-- Section 3: Delivery Surcharges -->
+      <section class="section-card">
+        <div class="section-header">
+          <span class="section-badge">3</span>
+          <div>
+            <h3 class="section-title">Delivery Surcharges</h3>
+            <p class="section-subtitle">When Applicable</p>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 65%;">Description</th>
+                <th style="width: 35%;">Pricing (AED)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="description">Surcharge for delivery to or return from Remote Areas</td>
+                <td class="price">AED 15 / order</td>
+              </tr>
+              <tr>
+                <td class="description">Oversize fee (extra weight charge per kg above 5kg)<sup>7</sup></td>
+                <td class="price">AED 2 / extra kg</td>
+              </tr>
+              <tr>
+                <td class="description">Multiparcel fee (max 8 parcels, additional order required after)</td>
+                <td class="price">AED 5 / additional parcel</td>
+              </tr>
+              <tr>
+                <td class="description">Cooler box delivery fee (on top of pick, pack and tracking fee)</td>
+                <td class="price">AED 2 / order</td>
+              </tr>
+              <tr>
+                <td class="description">Card payment on Delivery<sup>8</sup> (% of amount collected)</td>
+                <td class="price">2.5%</td>
+              </tr>
+              <tr>
+                <td class="description">Cash payment on Delivery (% of amount collected)</td>
+                <td class="price">2.5%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="footnotes">
+          <p class="footnote"><span class="footnote-num">7</span> In the event that a recurring share of your orders exceeds the standard size (30×30×30cm), Quiqup reserves the right to either adjust the base pricing offered or calculate the Oversize fee based on the volumetric weight = (L×W×H) / 5,000.</p>
+          <p class="footnote"><span class="footnote-num">8</span> We process card payments through a digital application that accepts card reading payments or generates payment links.</p>
+        </div>
+      </section>
+
+      <!-- Section 4: Stock Replenishment -->
+      <section class="section-card">
+        <div class="section-header">
+          <span class="section-badge">4</span>
+          <div>
+            <h3 class="section-title">Stock Replenishment</h3>
+            <p class="section-subtitle">Collection from Client Location</p>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 65%;">Description</th>
+                <th style="width: 35%;">Pricing (AED)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="description">Collections from Dubai - Bulk Load with Van/SUV</td>
+                <td class="price">AED 100 / load</td>
+              </tr>
+              <tr>
+                <td class="description">Collections from Dubai - Truck Load (approx. 4 pallets)</td>
+                <td class="price">AED 300 / load</td>
+              </tr>
+              <tr>
+                <td class="description">Collections from Abu Dhabi, Sharjah - Bulk Load with Van/SUV</td>
+                <td class="price">AED 200 / load</td>
+              </tr>
+              <tr>
+                <td class="description">Collections from Abu Dhabi, Sharjah - Truck Load (approx. 4 pallets)</td>
+                <td class="price">AED 600 / load</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="footnotes">
+          <p class="footnote"><span class="footnote-num">9</span> Large stock replenishments should be booked to the operations team and will be collected by van with 24hr notice. For any small stock quantity fitting in standard parcel size (up to 10 parcels), you can book a standard delivery through Quiqdash.</p>
+        </div>
+      </section>
