@@ -1,40 +1,33 @@
 # BigQuery Analyst Agent Memory
 
-## Key Schema Patterns
+## Definitions (READ FIRST)
 
-### invoicer_current.invoices - Revenue Queries
-- **Source of truth** for revenue: `invoicer_current.invoices`
-- **Date filter**: Use `start_date` (not `end_date`) for Finance reconciliation
-- **States**: `paid`, `overdue` for recognized revenue
-- **Net revenue**: `total_amount - COALESCE(tax_amount, 0)`
-- **Soft delete filter**: `record_deleted = FALSE`
-- **Currency**: All AED (lowercase "aed" in data)
+All business definitions live in [definitions.md](definitions.md). Every definition maps to a specific BigQuery view/table. Never hardcode classification logic — always JOIN to the definition view.
 
-### Account Hierarchy (invoicer_current.accounts)
-- Accounts have grandparent > parent > child hierarchy
-- `invoice_to_parent` flag routes invoices to parent account
-- Invoice `account_id` already reflects routing (joins directly)
-- For business group rollup: use `COALESCE(grandparent_account_name, parent_account_name, account_name)`
-- For SF name resolution: join `accounts.salesforce_id` to `salesforce_current.accounts.id`
-- Some `account_name` values are raw Salesforce IDs -- always LEFT JOIN to SF accounts for display names
+Key definitions quick-reference:
+- **Paid vs Organic** -> `views.definition_paid_organic_channel` (NOT paid = Organic)
+- **Inbound vs Outbound** -> `views.definition_lead_source` (source_group)
+- **Opp Conversion** -> `views.opportunities_convert_minus_2months` (parent account existence)
+- **New vs Existing Client** -> `client_type_classification` on opp view (LEAST of child/GP created_date)
+- **Net Revenue** -> `invoicer_current.invoices` (start_date, paid/overdue, total - tax)
+- **Grandparent Resolution** -> `views.true_grandparent_account`
+- **Activation** -> first_delivered_order_date IS NOT NULL (2030-01-01 = placeholder)
 
-### SSUP Catch-All
-- "SSUP Grandparent account" is a catch-all for self-signup accounts (~2,700 sub-accounts)
-- Represents ~8.5% of 2025 revenue; must be excluded from "top client" rankings
-- Filter: `WHERE group_name NOT LIKE '%SSUP%'`
+## Topic Files
 
-## 2025 Revenue Benchmarks
-- Total net revenue (2025, paid+overdue): AED 45,993,284 (n=28,801 invoices, 3,807 billing accounts)
-- Top 15 business groups = 49.7% of total revenue
-- #1 client: M.H. Alshaya Group = 12.7% of total
+| File | Contents |
+|------|----------|
+| [definitions.md](definitions.md) | All business definitions with source views, rules, join patterns |
+| [schema-patterns.md](schema-patterns.md) | Account hierarchy, SSUP, join gotchas, currency, date fields |
+| [opp-conversion-notes.md](opp-conversion-notes.md) | View logic, dashboard filter mismatch, validation counts |
+| [revenue-benchmarks.md](revenue-benchmarks.md) | 2025 totals, concentration, fulfilment segment, cross-checks |
+| [data-quality.md](data-quality.md) | NULL rates, SF ID resolution, GA4 gaps, file offsets |
 
-## Salesforce Service Offering Field
-- Field: `salesforce_current.accounts.Service_Offering_c` (STRING)
-- Values: Last Mile (22,819), NULL (9,381), On-demand (3,775), 4 Hours (997), Sameday (518), Fulfillment (517), Fulfillment + Last Mile (41)
-- For fulfilment client analysis: filter `Service_Offering_c IN ('Fulfillment', 'Fulfillment + Last Mile')`
-- 2025 fulfilment revenue: AED 11,167,340 (n=1,663 invoices) = 24.3% of total company revenue
-- Top client: La Purete Group (AED 2.71M), top 15 = 83.3% of fulfilment revenue (highly concentrated)
+## Critical Reminders
 
-## Data Quality Notes
-- See `bigquery_execution_reference.md` for full schema docs (file is large, read in chunks: offset 977+ for invoicer)
-- Grandparent SF IDs sometimes don't resolve in salesforce_current.accounts (e.g., Al Bayader showed raw SF ID)
+- SSUP catch-all: exclude from top-client rankings (`NOT LIKE '%SSUP%'`)
+- `stage_name` is mutable — opp conversion snapshots drift over time
+- `grandparent_utm_attribution` only has activated GPs — activation rate from it alone = always 100%
+- Without invoice-to-parent dedup, revenue inflates ~19x
+- Dashboard "Inbound Leads" filter != `definition_lead_source.source_group` (undercounts by ~88 opps)
+- Google Ads dimension tables: MUST filter `_DATA_DATE = _LATEST_DATE`
