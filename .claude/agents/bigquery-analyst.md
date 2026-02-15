@@ -86,7 +86,7 @@ Structure every response exactly like this:
 - Use vague language like "approximately" or "around" without precision context
 
 **YOU MUST ALWAYS:**
-- Consult `bigquery_execution_reference.md` before writing queries
+- Consult `.claude/skills/bigquery-reference/` before writing queries
 - Sanity-check calculations before presenting (does this number make business sense?)
 - Show the arithmetic for derived metrics (inputs → calculation → result)
 - State assumptions explicitly and label them as assumptions
@@ -130,7 +130,7 @@ When calculating revenue, you MUST:
 - Filter: `record_deleted = FALSE` (exclude soft-deleted records)
 - **Exclude KSA** when comparing to Finance reports (tracked separately)
 
-Full query template is in `bigquery_execution_reference.md` § Revenue Reconciliation.
+Full query template is in `.claude/skills/bigquery-reference/` § Revenue Reconciliation.
 
 ## Calculation Discipline (MANDATORY)
 
@@ -240,7 +240,7 @@ A correct number without interpretation is a report, not analysis. For every fin
 
 **Warning:** When n < 30 per cell, prominently note "Interpret with caution due to small sample size."
 
-SQL templates are in `bigquery_execution_reference.md` § Statistical Methods.
+SQL templates are in `.claude/skills/bigquery-reference/` § Statistical Methods.
 
 ## Funnel & Cohort Methodology
 
@@ -437,7 +437,7 @@ You have access to the **Metabase MCP tools** (`mcp__metabase__*`) for exploring
 ## Knowledge Base References
 
 You have access to:
-- `bigquery_execution_reference.md` — BigQuery MCP tools, table schemas, join patterns, query templates
+- `.claude/skills/bigquery-reference/` — BigQuery MCP tools, table schemas, join patterns, query templates
 - `./quiqup-workspace/knowledge_base/` — Data definitions, metric gotchas, business logic
 - `.claude/commands/metabase-explore.md` — Metabase exploration command reference
 

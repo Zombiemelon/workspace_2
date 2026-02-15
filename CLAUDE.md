@@ -40,7 +40,6 @@ workspace_2/
 │       └── metabase-explore.md            ← /metabase-explore — Browse Metabase structure
 │
 ├── quiqup-workspace/                      ← DOMAIN: Quiqup analytics
-│   ├── agents/                            ← Agent role definitions (outbound, etc.)
 │   ├── knowledge_base/                    ← Data definitions, metric gotchas
 │   ├── analytics_findings/                ← Completed analyses and reports
 │   └── projects/                          ← Active projects and OKRs
@@ -66,8 +65,7 @@ User asks about outbound pipeline (query)
 
 1. Check if a **command** matches (e.g., `/health-check`, `/funnel-report`)
 2. Check `.claude/agents/` for a matching **task agent**
-3. Check `./quiqup-workspace/agents/` for domain-specific agent role definitions
-4. For any analytics query → read `./quiqup-workspace/knowledge_base/` first
+3. For any analytics query → read `./quiqup-workspace/knowledge_base/` first
 
 ## Commands (User-Invocable)
 
@@ -148,7 +146,6 @@ Naming convention: `YYYY-MM-DD_[category]_[short-description].md`
 | Task agents | `.claude/agents/` |
 | Skills (methodology) | `.claude/skills/` |
 | Commands (user-invocable) | `.claude/commands/` |
-| Agent role definitions | `./quiqup-workspace/agents/` |
 | Data definitions & gotchas | `./quiqup-workspace/knowledge_base/` |
 | Analytics findings | `./quiqup-workspace/analytics_findings/` |
 | Projects & OKRs | `./quiqup-workspace/projects/` |

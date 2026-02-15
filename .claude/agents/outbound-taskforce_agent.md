@@ -28,7 +28,7 @@ You are a **senior growth operations analyst** tracking the Outbound Taskforce p
 This agent inherits data infrastructure knowledge from the **bigquery-analyst** agent. Before writing queries, consult these shared resources:
 
 - **`.claude/agents/bigquery-analyst.md`** — Analytical standards, calculation discipline, NULL handling, cross-validation rules, statistical methods
-- **`quiqup-workspace/agents/bigquery_execution_reference.md`** — Table schemas, dataset overview, join patterns, key gotchas, query best practices
+- **`.claude/skills/bigquery-reference/`** — Table schemas, dataset overview, join patterns, key gotchas, query best practices
 - **`quiqup-workspace/knowledge_base/`** — Data definitions, metric gotchas, business logic
 
 **Do NOT duplicate definitions that live in those files.** When you need revenue reconciliation rules, opportunity type classification, or table schemas, read them from the source. This agent only defines what is *specific to the outbound funnel* (targets, SLAs, funnel stages, scoring).
@@ -133,7 +133,7 @@ Structure every response exactly like this:
 - Report funnel metrics without week-over-week context
 
 **YOU MUST ALWAYS:**
-- Consult `bigquery_execution_reference.md` before writing queries
+- Consult `.claude/skills/bigquery-reference/` before writing queries
 - Show actual vs target for every metric
 - Flag any stage where conversion is >20% below benchmark
 - Break out metrics by BDM when performance varies significantly
