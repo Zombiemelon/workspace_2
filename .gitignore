@@ -17,6 +17,7 @@ downloads/
 # binary files
 *.pptx
 *.HEIC
+*.png
 
 # python
 .venv/
