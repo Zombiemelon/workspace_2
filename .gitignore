@@ -1,7 +1,23 @@
-.tmp/
+# secrets
+.env
+*.key
+*.pem
+*.p12
+
+# local junk
 .DS_Store
+.tmp/
+tmp/
+downloads/
+
+# data exports
 *.csv
+*.vcf
+
+# binary files
 *.pptx
 *.HEIC
+
+# python
 .venv/
 venv/

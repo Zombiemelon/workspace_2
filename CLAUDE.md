@@ -2,6 +2,14 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Before Answering Any Analytics Query (MANDATORY)
+
+1. **Read the knowledge base first:**
+   - `./quiqup-workspace/knowledge_base/quiqup_database_semantics.md` — Data gotchas, metric definitions, reconciliation rules
+   - This prevents common mistakes (Google Ads vs GA4 discrepancies, tracking exclusions, etc.)
+
+2. **Check for matching commands/agents** before doing ad-hoc work (see Agent Selection Protocol below)
+
 ## Architecture Overview
 
 This workspace uses a **router pattern** with three layers: agents (long-running specialists), skills (reusable methodology references), and commands (user-invocable actions).
@@ -32,10 +40,9 @@ workspace_2/
 │       └── metabase-explore.md            ← /metabase-explore — Browse Metabase structure
 │
 ├── quiqup-workspace/                      ← DOMAIN: Quiqup analytics
-│   ├── CLAUDE.md                          ← Domain router
-│   ├── agents/                            ← Domain sub-agents (bigquery, outbound, inbound)
-│   │   └── _index.md                      ← Sub-agent directory
+│   ├── agents/                            ← Agent role definitions (outbound, etc.)
 │   ├── knowledge_base/                    ← Data definitions, metric gotchas
+│   ├── analytics_findings/                ← Completed analyses and reports
 │   └── projects/                          ← Active projects and OKRs
 │
 └── projects/                              ← Cross-domain project files
@@ -59,8 +66,8 @@ User asks about outbound pipeline (query)
 
 1. Check if a **command** matches (e.g., `/health-check`, `/funnel-report`)
 2. Check `.claude/agents/` for a matching **task agent**
-3. Check `./quiqup-workspace/agents/_index.md` for domain sub-agents
-4. For Quiqup queries → delegate to `./quiqup-workspace/CLAUDE.md`
+3. Check `./quiqup-workspace/agents/` for domain-specific agent role definitions
+4. For any analytics query → read `./quiqup-workspace/knowledge_base/` first
 
 ## Commands (User-Invocable)
 
@@ -100,6 +107,14 @@ User asks about outbound pipeline (query)
 | **Metabase MCP** | Dashboard and card management |
 | **Coda MCP** | OKR tracking |
 | **Notion MCP** | Strategic docs |
+| **Sequential Thinking** | Enhanced multi-step reasoning and complex analysis |
+| **Context7** | Access to up-to-date documentation and framework patterns |
+| **Magic (21st.dev)** | Advanced UI component generation and design system integration |
+| **Playwright** | Cross-browser testing and E2E automation capabilities |
+| **Filesystem** | Direct filesystem operations on the workspace directory |
+| **Puppeteer** | Headless browser automation and web scraping |
+
+> **Note:** Sequential Thinking, Context7, Magic, Filesystem, and Puppeteer are configured at user scope (`~/.claude/.mcp.json`). They enhance agent capabilities but are not required for basic analytics functionality.
 
 ## BI Output Standards
 
@@ -107,6 +122,23 @@ User asks about outbound pipeline (query)
 - Confidence scores: High (>90%), Medium (70-90%), Low (<70%)
 - Always cite data sources
 - Use "Data shows" not "I think"
+
+## Document Format Standards (MANDATORY)
+
+All documents must include YAML front matter:
+
+```yaml
+---
+title: "Document Title"
+date: YYYY-MM-DD
+author: Claude | [Name]
+description: "Brief summary of what this file contains and its purpose"
+---
+```
+
+Optional fields: `category` (analysis/decision/playbook/data), `status` (draft/final), `tags`, `data_period`, `statistical_methods`
+
+Naming convention: `YYYY-MM-DD_[category]_[short-description].md`
 
 ## Quick Reference
 
@@ -116,9 +148,10 @@ User asks about outbound pipeline (query)
 | Task agents | `.claude/agents/` |
 | Skills (methodology) | `.claude/skills/` |
 | Commands (user-invocable) | `.claude/commands/` |
-| Quiqup domain | `./quiqup-workspace/CLAUDE.md` |
-| Quiqup sub-agents | `./quiqup-workspace/agents/_index.md` |
-| Data definitions | `./quiqup-workspace/knowledge_base/` |
+| Agent role definitions | `./quiqup-workspace/agents/` |
+| Data definitions & gotchas | `./quiqup-workspace/knowledge_base/` |
+| Analytics findings | `./quiqup-workspace/analytics_findings/` |
+| Projects & OKRs | `./quiqup-workspace/projects/` |
 | New skill | Create `.claude/skills/[name]/SKILL.md` |
 | New command | Create `.claude/commands/[name].md` referencing a skill |
 | New agent | Create `.claude/agents/[name].md` |
